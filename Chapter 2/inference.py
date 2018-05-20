@@ -20,7 +20,7 @@ checkpoint_file = tf.train.latest_checkpoint(os.path.join(hy_param.checkpoint_di
 saver = tf.train.import_meta_graph("{}.meta".format(checkpoint_file))
 
 # Loading test data
-test_data = np.array([mnist.test.images[0]])
+test_data = np.array([mnist.test.images[6]])
 
 # Loading input variable from the model
 input_x = tf.get_default_graph().get_operation_by_name("input_x").outputs[0]
@@ -40,5 +40,6 @@ with tf.Session() as sess:
 
 
 # Display the feed image
+print ("Input image:")
 plt.gray()
 plt.imshow(test_data.reshape([28,28]))

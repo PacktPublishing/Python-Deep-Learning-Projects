@@ -19,18 +19,23 @@ X = model.X
 Y = model.Y
 
 
+
 checkpoint_dir = os.path.abspath(os.path.join(hy_param.checkpoint_dir, "checkpoints"))
 checkpoint_prefix = os.path.join(checkpoint_dir, "model")
 if not os.path.exists(checkpoint_dir):
     os.makedirs(checkpoint_dir)
 saver = tf.train.Saver(tf.global_variables(), max_to_keep=2)
         
-
+#loss = tf.Variable(0.0)
 # Initialize the variables
 init = tf.global_variables_initializer()
-
+all_loss = []
 # Start training
 with tf.Session() as sess:
+    writer_1 = tf.summary.FileWriter("./runs/summary/",sess.graph)
+    
+    sum_var = tf.summary.scalar("loss", model.accuracy)
+    write_op = tf.summary.merge_all()
 
     # Run the initializer
     sess.run(init)
@@ -42,15 +47,17 @@ with tf.Session() as sess:
         sess.run(model.train_op, feed_dict={X: batch_x, Y: batch_y})
         if step % hy_param.display_step == 0 or step == 1:
             # Calculate batch loss and accuracy
-            loss, acc = sess.run([model.loss_op, model.accuracy], feed_dict={X: batch_x,
+            loss, acc, summary = sess.run([model.loss_op, model.accuracy, write_op], feed_dict={X: batch_x,
                                                                  Y: batch_y})
+            all_loss.append(loss)
+            writer_1.add_summary(summary, step)
             print("Step " + str(step) + ", Minibatch Loss= " + \
                   "{:.4f}".format(loss) + ", Training Accuracy= " + \
                   "{:.3f}".format(acc))
         if step % hy_param.checkpoint_every == 0:
             path = saver.save(
                         sess, checkpoint_prefix, global_step=step)
-            print("Saved model checkpoint to {}\n".format(path))
+#            print("Saved model checkpoint to {}\n".format(path))
 
     print("Optimization Finished!")
 
