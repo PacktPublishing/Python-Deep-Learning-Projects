@@ -1,0 +1,3 @@
+model_checkpoint_path: "./checkpoints_chatbot/model-1725"
+all_model_checkpoint_paths: "./checkpoints_chatbot/model-1724"
+all_model_checkpoint_paths: "./checkpoints_chatbot/model-1725"
