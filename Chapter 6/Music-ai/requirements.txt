@@ -1,0 +1,5 @@
+music21
+keras
+tensorflow
+h5py
+glob
