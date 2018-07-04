@@ -1,0 +1,2 @@
+model_checkpoint_path: "my_first_lyrics_model.ckpt-4950000"
+all_model_checkpoint_paths: "my_first_lyrics_model.ckpt-4950000"
