@@ -1,5 +1,5 @@
 import tensorflow as tf
-import deepSpeech_input
+import DS_input as deepSpeech_input
 import rnn_cell
 from helper_routines import _variable_on_cpu
 from helper_routines import _variable_with_weight_decay
