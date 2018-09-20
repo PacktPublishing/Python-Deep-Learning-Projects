@@ -1,4 +1,4 @@
-"""This module implements a deep conv classifier with max pool and dropout."""
+"""This module implements a deep conv classifier on augmented data."""
 import numpy as np
 from keras.datasets import mnist
 from keras.models import Sequential

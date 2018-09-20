@@ -1,4 +1,4 @@
-"""This module imports """
+"""This module implements conv classifier with maxpool and dropout operation."""
 import numpy as np
 from keras.datasets import mnist
 from keras.models import Sequential
