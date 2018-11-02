@@ -33,7 +33,8 @@ from skimage import io
 ```
 
 **Following is what you need for this book:**
-0
+Python Deep Learning Projects is for you if you want to get insights into deep learning, data science, and artificial intelligence. This book is also for those who want to break into deep learning and develop their own AI projects.
+It is assumed that you have sound knowledge of Python programming
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-15).
 ### Software and Hardware List
