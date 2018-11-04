@@ -206,7 +206,7 @@ reduceLROnPlat = ReduceLROnPlateau(monitor='val_acc', factor=0.75, patience=5,
                       min_delta=0.005, mode='max', cooldown=3, verbose=1)
 callbacks_list = [reduceLROnPlat]
 
-# fit the model
+# fit/train the model
 history = model.fit(train_data, train_label, callbacks=callbacks_list,
                     batch_size=batch_size, epochs=nb_epoch,
                     verbose=1, shuffle=True,
